@@ -1,0 +1,11 @@
+version: "3"
+services:
+  estoque_db:
+    image: postgres
+    hostname: estoque_db
+    environment:
+      POSTGRES_PASSWORD: estoquepassword
+      POSTGRES_USER: estoqueuser
+      POSTGRES_DB: estoque
+    ports:
+      - "5432:5432"

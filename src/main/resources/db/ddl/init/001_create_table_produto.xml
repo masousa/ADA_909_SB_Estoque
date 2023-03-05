@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="init_create_table_produto" author="matheus">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="produto" />
+            </not>
+        </preConditions>
+
+        <createTable tableName="produto">
+
+            <column name="id" type="serial" >
+                <constraints primaryKey="true" nullable="false"  />
+            </column>
+            <column name="identificador" type="character varying(255)" >
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="nome" type="character varying(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="marca" type="character varying(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="unidade" type="character varying(255)" defaultValue="UN"/>
+            <column name="quantidade_da_unidade" type="decimal(18,2)" defaultValue="0.0"/>
+            <column name="unidade_estoque" type="bigint" defaultValue="0"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,25 @@
+server:
+  servlet:
+    context-path: /
+  port: 9082
+  compression:
+    mime-types:
+      - application/json
+info:
+  app:
+    name: ${spring.application.name}
+
+spring:
+  application: estoque-ms
+  r2dbc:
+    username: estoqueuser
+    password: estoquepassword
+    #url: r2dbc:h2:mem:///~/db/testdb
+    url: r2dbc:postgresql://localhost:5432/estoque
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-local.xml
+    user: estoqueuser
+    password: estoquepassword
+    url: jdbc:postgresql://localhost:5432/estoque
+

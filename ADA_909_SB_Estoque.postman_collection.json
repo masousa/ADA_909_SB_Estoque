@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "b7fcb8a6-b00d-4640-ba1f-fdadec50792c",
+		"name": "ADA_909_SB_Estoque",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26109885"
+	},
+	"item": [
+		{
+			"name": "[POST][ADD] Adicionar Produto no estoque",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\":\"Shampoo\",\n    \"marca\": \"Boticario\",\n    \"unidade\": \"ML\",\n    \"quantidade_unidade\": 300.0,\n    \"identificador\": \"123\",\n    \"quantidade\":12\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9082/produto/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9082",
+					"path": [
+						"produto",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET][LIST] Listando os produtos do estoque",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9082/produto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9082",
+					"path": [
+						"produto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET][RETRIEVE] Obter Produto por identificador",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9082/produto/find/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9082",
+					"path": [
+						"produto",
+						"find",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "12358"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
